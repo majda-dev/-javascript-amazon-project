@@ -6,6 +6,10 @@ import {deliveryOptions} from '../data/deliveryOptions.js';
 
 
 const today = dayjs();
+
+function renderOrderSummery(){
+
+
 let cartSummaryHTML = '';
 
 cart.forEach((cartItem) => {
@@ -181,5 +185,9 @@ document.querySelectorAll('.js-save-link')
     element.addEventListener('click', () => {
       const {productId, deliveryOptionId} = element.dataset;
       updateDeliveryOption(productId, deliveryOptionId);
+      renderOrderSummery();
     });
   });
+}
+
+renderOrderSummery();
